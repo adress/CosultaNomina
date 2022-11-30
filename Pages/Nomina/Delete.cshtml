@@ -1,0 +1,25 @@
+﻿@page
+@model ConsultaNomina.Pages.Nomina.DeleteModel
+@{
+ViewData["Title"] = "Borrar Detalle Nomina";
+}
+
+
+<div class="container">
+    <div class="card border-secondary my-5 mx-auto" style="max-width: 20rem;">
+        <div class="card-header text-center">Confirmar</div>
+        <div class="card-body text-secondary text-center">
+            <h5 class="card-title">¿está seguro de eliminar el registro <span class="strong">@Model.Registro</span>?</h5>
+            <p class="card-text">
+            <form method="post">
+                <input type="hidden" asp-for="Registro">
+                <input type="hidden" asp-for="Documento">
+                <button type="submit" class="btn btn-danger mt-5"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                <a asp-page="Index" asp-route-documento="@Model.Documento" class="btn btn-success mt-5"><i
+                        class="fa-solid fa-ban"></i> Cancelar</a>
+            </form>
+            </p>
+        </div>
+    </div>
+
+</div>

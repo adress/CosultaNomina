@@ -1,0 +1,31 @@
+﻿@page
+@model ConsultaNomina.Pages.Nomina.EditModel
+@{
+    ViewData["Title"] = "Editar Nomina";
+}
+
+<div class="container">
+    <div class="card border-success my-5 mx-auto" style="max-width: 20rem;">
+        <div class="card-header text-center">Actualizar Valor de Nómina</div>
+        <div class="card-body text-success text-center">
+            <h5 class="card-title">Ingrese el nuevo valor de la nómina</h5>
+            <p class="card-text">
+            <form method="post">
+                <label asp-for="ValNomina" class="form-label"></label>
+                <input asp-for="ValNomina" class="form-control" />
+                <span asp-validation-for="ValNomina" class="text-danger"></span>
+                <input type="hidden" asp-for="Registro">
+                <input type="hidden" asp-for="Documento">
+                <button type="submit" class="btn btn-primary mt-5"><i class="fa-solid fa-check"></i> Actualizar</button>
+                <a asp-page="Index" asp-route-documento="@Model.Documento" class="btn btn-success mt-5"><i
+                    class="fa-solid fa-ban"></i> Cancelar</a>
+            </form>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"/>
+}
