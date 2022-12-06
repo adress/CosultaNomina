@@ -1,3 +1,4 @@
+USE TestDB;
 -- Create a new stored procedure called 'USP_CONSULTA_NOMINA_POR_DOCUMENTO' in schema 'dbo'
 -- Drop the stored procedure if it already exists
 IF EXISTS (

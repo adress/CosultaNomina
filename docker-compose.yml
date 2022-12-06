@@ -1,0 +1,35 @@
+version: "3"
+# En el nodo services para incluir los servicios app, db y nginx.
+services:
+
+  admin-consultanomina-app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: app-consultanomina-001
+    container_name: app-consultanomina-001
+    restart: unless-stopped
+    working_dir: /App
+    ports:
+      - 80:80
+    networks:
+      - net-consultanomina-001
+      
+  admin-consultanomina-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: app-consultanomina-db-001
+    working_dir: /home
+    ports:
+      - 1430:1433
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: <your_pass_here>
+      MSSQL_PID: Express
+    volumes:
+      - ./Recursos:/home
+    networks: 
+      - net-consultanomina-001
+
+networks:
+  net-consultanomina-001:
+    driver: bridge

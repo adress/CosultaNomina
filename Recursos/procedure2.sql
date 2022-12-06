@@ -1,3 +1,4 @@
+USE TestDB;
 -- Create a new stored procedure called 'SPR_CONSULTA_EMPLEADOS' in schema 'dbo'
 -- Drop the stored procedure if it already exists
 IF EXISTS (
